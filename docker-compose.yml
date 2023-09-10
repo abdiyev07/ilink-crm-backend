@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+  nest:
+    image: ilink-crm-api
+    scale: ${SCALE_NUM}
+    restart: unless-stopped
+    command: npm run start:prod
+    env_file:
+      - .env
+    ports:
+      - 127.0.0.1:4001-400${SCALE_NUM}:3000
+    volumes:
+      - ./static:/usr/src/app/dist/static
+      - /usr/src/app/node_modules
