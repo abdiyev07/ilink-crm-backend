@@ -14,6 +14,7 @@ export const formatDate = (date: Date, showTime = false): string => {
     day: '2-digit',
     month: '2-digit',
     year: 'numeric',
+    timeZone: 'Asia/Almaty'
   };
 
   if (showTime) {

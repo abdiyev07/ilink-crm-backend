@@ -59,8 +59,8 @@ export class OrdersService {
       .createQueryBuilder('orders')
       .orderBy('id', 'DESC')
       .where('orders.created_at BETWEEN :startDate AND :endDate', {
-        startDate: new Date(startDate),
-        endDate: new Date(endDate),
+        startDate: startDate,
+        endDate: endDate,
       })
       .getMany();
     if (!data || !data.length) throw new BadRequestException('За выбранный период отсутствуют данные');
