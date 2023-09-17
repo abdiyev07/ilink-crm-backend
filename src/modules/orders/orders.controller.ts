@@ -1,4 +1,5 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, Query, Res } from '@nestjs/common';
+import { Response } from 'express';
 import { OrdersService } from './orders.service';
 import { AddOrderDto } from './dto/add-order.dto';
 import { UpdateOrderDto } from './dto/update-order.dto';
@@ -26,5 +27,14 @@ export class OrdersController {
   @Delete(':id')
   deleteOrder(@Param('id') orderId: string) {
     return this.ordersService.deleteOrder(orderId);
+  }
+
+  @Get('generate-excel')
+  generateExcelForOrdersList(
+    @Query('start') startDate: string,
+    @Query('end') endDate: string,
+    @Res() response: Response,
+  ) {
+    return this.ordersService.generateExcelForOrdersList(startDate, endDate, response);
   }
 }
