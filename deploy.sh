@@ -2,7 +2,6 @@
 
 git pull
 npm run migration
-docker build --target production -t ilink-crm-api .
-docker compose down --remove-orphans
-docker compose up -d
-docker system prune --volumes --force
+npx pm2 stop 0
+npx pm2 delete all
+npx pm2 start dist/src/main.js --name ilink-backend
