@@ -38,6 +38,12 @@ export class OrderEntity {
   @Column({ type: 'text', nullable: true })
   address: string;
 
+  @Column({ type: 'varchar', nullable: true })
+  client_uid: string;
+
+  @Column({ type: 'varchar', nullable: true })
+  sub_provider: string;
+
   @CreateDateColumn()
   created_at: Date;
 

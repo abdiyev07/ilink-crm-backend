@@ -20,4 +20,8 @@ export class AddClientDto {
   @IsOptional()
   @IsBoolean()
   has_tv: boolean;
+
+  @IsNotEmpty()
+  @IsString()
+  address: string;
 }

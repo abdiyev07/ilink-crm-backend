@@ -45,4 +45,12 @@ export class UpdateOrderDto {
   @IsOptional()
   @IsString()
   fixed_at: Date;
+
+  @IsOptional()
+  @IsString()
+  client_uid: string;
+
+  @IsOptional()
+  @IsString()
+  sub_provider: string;
 }

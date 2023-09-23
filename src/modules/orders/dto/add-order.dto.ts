@@ -44,4 +44,12 @@ export class AddOrderDto {
   @IsOptional()
   @IsString()
   fixed_at: string;
+
+  @IsOptional()
+  @IsString()
+  client_uid: string;
+
+  @IsOptional()
+  @IsString()
+  sub_provider: string;
 }

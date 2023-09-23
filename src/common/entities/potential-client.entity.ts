@@ -20,6 +20,9 @@ export class PotentialClientEntity {
   @Column({ type: 'boolean' })
   has_tv: boolean;
 
+  @Column({ type: 'varchar', nullable: true })
+  address: string;
+
   @CreateDateColumn()
   created_at: Date;
 
