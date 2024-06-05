@@ -67,11 +67,14 @@ export class OrdersService {
 
     const excelColumns: Array<CreateExcelTemplateColumns> = [
       { width: 5, columnTitle: '№' },
+      { width: 20, columnTitle: 'UID клиента' },
       { width: 20, columnTitle: 'Номер телефона' },
       { width: 30, columnTitle: 'Тип работы' },
       { width: 30, columnTitle: 'Причина' },
       { width: 30, columnTitle: 'Тип клиента' },
       { width: 25, columnTitle: 'Статус' },
+      { width: 10, columnTitle: 'CSI' },
+      { width: 40, columnTitle: 'Суб. провайдер' },
       { width: 40, columnTitle: 'Монтажная бригада' },
       { width: 30, columnTitle: 'Адрес' },
       { width: 30, columnTitle: 'Дата создания' },
@@ -90,16 +93,19 @@ export class OrdersService {
       ws.cell(cellIdx, 1)
         .number(el.id + 1)
         .style(style);
-      ws.cell(cellIdx, 2).string(el.contact_phone_number).style(style);
-      ws.cell(cellIdx, 3).string(el.work_type).style(style);
-      ws.cell(cellIdx, 4).string(el.breakdown_reason).style(style);
-      ws.cell(cellIdx, 5).string(el.client_type).style(style);
-      ws.cell(cellIdx, 6).string(el.status).style(style);
-      ws.cell(cellIdx, 7).string(el.executors).style(style);
-      ws.cell(cellIdx, 8).string(el.address).style(style);
-      ws.cell(cellIdx, 9).string(formatDate(el.created_at, true)).style(style);
-      ws.cell(cellIdx, 10).string(formatDate(el.fixed_at, false)).style(style);
-      ws.cell(cellIdx, 11)
+      ws.cell(cellIdx, 2).string(el.client_uid).style(style);
+      ws.cell(cellIdx, 3).string(el.contact_phone_number).style(style);
+      ws.cell(cellIdx, 4).string(el.work_type).style(style);
+      ws.cell(cellIdx, 5).string(el.breakdown_reason).style(style);
+      ws.cell(cellIdx, 6).string(el.client_type).style(style);
+      ws.cell(cellIdx, 7).string(el.status).style(style);
+      ws.cell(cellIdx, 8).string(el.csi).style(style);
+      ws.cell(cellIdx, 9).string(el.sub_provider).style(style);
+      ws.cell(cellIdx, 10).string(el.executors).style(style);
+      ws.cell(cellIdx, 11).string(el.address).style(style);
+      ws.cell(cellIdx, 12).string(formatDate(el.created_at, true)).style(style);
+      ws.cell(cellIdx, 13).string(formatDate(el.fixed_at, false)).style(style);
+      ws.cell(cellIdx, 14)
         .string(el.is_free ? 'Бесплатно' : 'Платно')
         .style(style);
 
